@@ -1,0 +1,20 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<address>
+    STIHL<br />
+    Советская ул., 41, Псков, Псковская обл., 180000<br />
+    <abbr title="Телефон">Телефон:</abbr>
+    8 (811) 272-49-26
+</address>
+
+<address>
+    <strong>Техническая поддержка:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Отдел продаж:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
+
+{% endblock %}

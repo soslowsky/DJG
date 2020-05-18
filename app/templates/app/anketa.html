@@ -1,0 +1,108 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+{% if form != None %}
+<br><h2>Отправьте пожалуйста заполненную анкету</h2><br>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.name.id_for_label }}" >{{ form.name.label }}</label>
+        {{ form.name }}<br><br>
+        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
+        {{ form.city }}<br>
+        <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}</label>
+        {{ form.gender }}
+        <label for="{{ form.job.id_for_label }}">{{ form.job.label }}</label>
+        {{ form.job }}<br><br>
+        <label for="{{ form.internet.id_for_label }}">{{ form.internet.label }}</label>
+        {{ form.internet }}<br><br>
+        <label for="{{ form.notice.id_for_label }}">{{ form.notice.label }}</label>
+        {{ form.notice }}<br><br>
+        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+        {{ form.email }}<br><br>
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+        {{ form.message }}<br><br>
+        <input type="submit" value="Отправить" id="b1">
+        <script>
+            function b1_mouseover() {
+                $('#b1').css('background-color', 'lightyellow')
+            }
+            $('#b1').mouseover(b1_mouseover);
+
+            function b1_mouseout() {
+                $('#b1').css('background-color', '')
+            }
+            $('#b1').mouseout(b1_mouseout);
+
+            function id_name_focus() {
+                $('#id_name').css('background-color', 'lightyellow')
+                $('#id_name').css('color', 'navy')
+            }
+            $('#id_name').focus(id_name_focus);
+            function id_name_blur() {
+                $('#id_name').css('background-color', 'white')
+                $('#id_name').css('color', 'black')
+            }
+            $('#id_name').blur(id_name_blur);
+
+            function id_city_focus() {
+                $('#id_city').css('background-color', 'lightyellow')
+                $('#id_city').css('color', 'navy')
+            }
+            $('#id_city').focus(id_city_focus);
+            function id_city_blur() {
+                $('#id_city').css('background-color', '')
+                $('#id_city').css('color', '')
+            }
+            $('#id_city').blur(id_city_blur);
+
+            function id_job_focus() {
+                $('#id_job').css('background-color', 'lightyellow')
+                $('#id_job').css('color', 'navy')
+            }
+            $('#id_job').focus(id_job_focus);
+            function id_job_blur() {
+                $('#id_job').css('background-color', '')
+                $('#id_job').css('color', '')
+            }
+            $('#id_job').blur(id_job_blur);
+
+            function id_email_focus() {
+                $('#id_email').css('background-color', 'lightyellow')
+                $('#id_email').css('color', 'navy')
+            }
+            $('#id_email').focus(id_email_focus);
+            function id_email_blur() {
+                $('#id_email').css('background-color', '')
+                $('#id_email').css('color', '')
+            }
+            $('#id_email').blur(id_email_blur);
+
+            function id_message_focus() {
+                $('#id_message').css('background-color', 'lightyellow')
+                $('#id_message').css('color', 'navy')
+            }
+            $('#id_message').focus(id_message_focus);
+            function id_message_blur() {
+                $('#id_message').css('background-color', '')
+                $('#id_message').css('color', '')
+            }
+            $('#id_message').blur(id_message_blur);
+        </script>
+    </form>
+</div>
+{% else %}
+<br><h2>Благодарим за предоставленную информацию!</h2>
+<h3>Вы сообщили о себе следующее:</h3>
+<ul>
+    <li><span>Имя:</span> {{ data.name }}</li>
+    <li><span>Город:</span> {{ data.city }}</li>
+    <li><span>Пол:</span> {{ data.gender }}</li>
+    <li><span>Работа:</span> {{ data.job }}</li>
+    <li><span>В интернете:</span> {{ data.internet }}</li>
+    <li><span>Получать новости:</span> {{ data.notice }}</li>
+    <li><span>Ваш email:</span> {{ data.email }}</li>
+    <li><span>Информация о себе:</span> {{ data.message }}</li>
+</ul>
+{% endif %}
+{% endblock %}
